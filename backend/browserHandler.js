@@ -1,7 +1,13 @@
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
+import fs from 'fs';
 
 export async function ReelsUpload(videoPath, caption, cookiesJson) {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({
+    executablePath: '/usr/bin/chromium-browser',  // Sesuaikan path Chromium di Termux
+    headless: false,  // Ubah ke true jika tidak ingin membuka browser
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
+
   const page = await browser.newPage();
 
   // Set cookies
