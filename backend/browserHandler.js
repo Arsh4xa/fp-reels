@@ -4,7 +4,7 @@ import fs from 'fs';
 export async function ReelsUpload(videoPath, caption, cookiesJson) {
   const browser = await puppeteer.launch({
     executablePath: '/data/data/com.termux/files/usr/bin/chromium-browser',  // Sesuaikan path Chromium di Termux
-    headless: false,  // Ubah ke true jika tidak ingin membuka browser
+    headless: true,  // Ubah ke true jika tidak ingin membuka browser
     args: [
       '--user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
       '--no-sandbox', 
@@ -19,7 +19,7 @@ export async function ReelsUpload(videoPath, caption, cookiesJson) {
   await page.setCookie(...cookies);
 
   console.log('Mengakses Facebook...');
-  await page.goto('https://m.facebook.com/', { waitUntil: 'networkidle2' });
+  await page.goto('https://www.facebook.com/', { waitUntil: 'networkidle2' });
 
   await page.screenshot({ path: '/sdcard/check_login.png' }); // Cek apakah berhasil login
 
