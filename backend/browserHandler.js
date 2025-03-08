@@ -5,7 +5,11 @@ export async function ReelsUpload(videoPath, caption, cookiesJson) {
   const browser = await puppeteer.launch({
     executablePath: '/data/data/com.termux/files/usr/bin/chromium-browser',  // Sesuaikan path Chromium di Termux
     headless: false,  // Ubah ke true jika tidak ingin membuka browser
-    args: ['--user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"',--no-sandbox', '--disable-setuid-sandbox']
+    args: [
+      '--user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+      '--no-sandbox', 
+      '--disable-setuid-sandbox'
+    ]
   });
 
   const page = await browser.newPage();
