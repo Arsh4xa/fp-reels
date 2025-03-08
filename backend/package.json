@@ -1,0 +1,13 @@
+{
+  "name": "facebook-reels-uploader",
+  "version": "1.0.0",
+  "description": "Uploader Reels Facebook menggunakan Puppeteer dan Cookies",
+  "main": "upload.js",
+  "type": "module",
+  "scripts": {
+    "start": "node upload.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.3.0"
+  }
+}
