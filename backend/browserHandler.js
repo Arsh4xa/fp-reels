@@ -3,7 +3,7 @@ import fs from 'fs';
 
 export async function ReelsUpload(videoPath, caption, cookiesJson) {
   const browser = await puppeteer.launch({
-    executablePath: '/usr/bin/chromium-browser',  // Sesuaikan path Chromium di Termux
+    executablePath: '/data/data/com.termux/files/usr/bin/chromium-browser',  // Sesuaikan path Chromium di Termux
     headless: false,  // Ubah ke true jika tidak ingin membuka browser
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
