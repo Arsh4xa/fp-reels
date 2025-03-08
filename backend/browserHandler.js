@@ -62,16 +62,16 @@ export async function ReelsUpload(videoPath, caption, cookiesJson) {
   //const inputUploadHandle = await page.waitForSelector('input[type="file"]');
   //await inputUploadHandle.uploadFile(videoPath);
   //console.log('Video diunggah...');
-  const uploadElement = await page.$x(uploadButtonSelector);
+  const uploadElement = await page.waitForXPath(uploadButtonSelector);
   const [filechooser] = await Promise.all([
   page.waitForFileChooser(),
   await uploadElement[0].click()
   ])
   await delay(2000)
-  const cek90s = await page.$x(s90detector)
+  const cek90s = await page.waitForXPath(s90detector)
   if (cek90s.length > 0) {
     printLog("Durasi video tidak boleh lebih dari 90 detik.", "red")
-    const cutthevideos = await page.$x(cutvideoSelector);
+    const cutthevideos = await page.waitForXPath(cutvideoSelector);
     await cutthevideos[0].click()
     await browser.close()
     return resolve({
@@ -81,17 +81,17 @@ export async function ReelsUpload(videoPath, caption, cookiesJson) {
   } else {
     printLog("Video lebih dari 90 detik tidak terdeteksi", "green")
   }
-  const nextElement2 = await page.$x(nextButtonSelector2);
+  const nextElement2 = await page.waitForXPath(nextButtonSelector2);
   await nextElement2[0].click()
   await delay(2000)
-  const usernameElement = await page.$x(textAreaSelector);
+  const usernameElement = await page.waitForXPath(textAreaSelector);
   await usernameElement[0].click();
   await usernameElement[0].type(`${caption}`);
   printLog("Menginput Caption...")
   await delay(2000)
   let cekenablepublishButton;
   do {
-    const [element] = await page.$x(nextButtonSelector3)
+    const [element] = await page.waitForXPath(nextButtonSelector3)
     if (element) {
       cekenablepublishButton = await page.evaluate(el => el.getAttribute('aria-disabled'), element);
       // console.log(cekenablepublishButton)
@@ -99,7 +99,7 @@ export async function ReelsUpload(videoPath, caption, cookiesJson) {
   }
   while (cekenablepublishButton)
   if (!cekenablepublishButton) {
-    const PostButton = await page.$x(nextButtonSelector3);
+    const PostButton = await page.waitForXPath(nextButtonSelector3);
     await PostButton[0].click()
     printLog("Post ke Reels", 'yellow')
     await page.waitForXPath(ended, {timeout: 100000})
