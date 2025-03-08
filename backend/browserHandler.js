@@ -18,7 +18,7 @@ export async function ReelsUpload(videoPath, caption, cookiesJson) {
   await page.goto('https://www.facebook.com/', { waitUntil: 'networkidle2' });
 
   console.log('Navigasi ke halaman upload Reels...');
-  await page.goto('https://www.facebook.com/reel/', { waitUntil: 'networkidle2' });
+  await page.goto('https://www.facebook.com/reel/create', { waitUntil: 'networkidle2' });
 
   // Tunggu dan unggah file video
   const inputUploadHandle = await page.waitForSelector('input[type="file"]');
