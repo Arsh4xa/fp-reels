@@ -15,7 +15,7 @@ export async function ReelsUpload(videoPath, caption, cookiesJson) {
   });
 
   const page = await browser.newPage();
-  await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, seperti Gecko) Chrome/115.0.0.0 Safari/537.36'
+  await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, seperti Gecko) Chrome/115.0.0.0 Safari/537.36');
   await page.setViewport({ width: 1366, height: 768 });
   // Set cookies
   const cookies = JSON.parse(cookiesJson);
