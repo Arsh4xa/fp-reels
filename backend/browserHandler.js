@@ -10,7 +10,7 @@ export async function ReelsUpload(videoPath, caption, cookiesJson) {
       '--disable-setuid-sandbox'
       '--disable-gpu',
       '--disable-dev-shm-usage',
-      '--disable-software-rasterizer',
+      '--disable-software-rasterizer'
     ]
   });
 
