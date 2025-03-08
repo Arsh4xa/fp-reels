@@ -7,7 +7,7 @@ export async function ReelsUpload(videoPath, caption, cookiesJson) {
     headless: true,  // Ubah ke true jika tidak ingin membuka browser
     args: [
       '--no-sandbox', 
-      '--disable-setuid-sandbox'
+      '--disable-setuid-sandbox',
       '--disable-gpu',
       '--disable-dev-shm-usage',
       '--disable-software-rasterizer'
