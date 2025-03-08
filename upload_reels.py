@@ -2,9 +2,9 @@ import subprocess
 import os
 
 # Masukkan path video, file cookies, dan caption
-VIDEO_PATH = input("Masukkan path video: ").strip()
-COOKIE_FILE = input("Masukkan path cookies.json: ").strip()
-CAPTION = input("Masukkan caption: ").strip()
+VIDEO_PATH = "/sdcard/result.mp4" #input("Masukkan path video: ").strip()
+COOKIE_FILE = "/sdcard/cookies.json" #input("Masukkan path cookies.json: ").strip()
+CAPTION = "deskripsi " #input("Masukkan caption: ").strip()
 
 # Path ke script uploader Node.js
 NODE_SCRIPT = os.path.join(os.path.dirname(__file__), "backend/upload.js")
