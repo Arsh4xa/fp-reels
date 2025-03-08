@@ -17,6 +17,8 @@ export async function ReelsUpload(videoPath, caption, cookiesJson) {
   console.log('Mengakses Facebook...');
   await page.goto('https://www.facebook.com/', { waitUntil: 'networkidle2' });
 
+  await page.screenshot({ path: '/sdcard/check_login.png' }); // Cek apakah berhasil login
+
   console.log('Navigasi ke halaman upload Reels...');
   await page.goto('https://www.facebook.com/reel/create', { waitUntil: 'networkidle2' });
 
